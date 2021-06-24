@@ -1,0 +1,35 @@
+# This is the configuration file for Netlify CMS
+backend:
+  name: test-repo
+
+media_folder: static/img
+public_folder: /img
+
+collections:
+  - name: 'projects'
+    identifier_field: 'project_title'
+    label: 'Projects'
+    folder: 'content/projects'
+    create: true
+    slug: 'index'
+    media_folder: ''
+    public_folder: ''
+    path: '{{slug}}/index'
+    editor:
+      preview: false
+    fields:
+      - { label: 'Title', name: 'project_title', widget: 'string' }
+      - { label: 'Featured', name: 'featured_project', widget: 'boolean', default: false }
+      - { label: 'Completed', name: 'completed', widget: 'boolean', default: false }
+      - { label: 'Publish Date', name: 'project_post_date', widget: 'date' }
+      - { label: 'Description', name: 'description', widget: 'text' }
+      - { label: 'Project Category', name: 'project_category', widget: 'select', options: ["Academic", "Professional", "Personal"] }
+      - { label: 'Vision', name: 'vision', widget: 'text' }
+      - { label: 'Outcome', name: 'outcome', widget: 'text' }
+      - { label: 'Links', name: 'links', widget: 'list' }
+      - { label: 'Video Link', name: 'video_link', widget: 'string' }
+      - { label: 'Preview Thumbnail', name: 'project_preview_thumbnail', widget: 'image'}
+      - { label: 'Slug', name: 'slug', widget: 'string'}
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+
+      
