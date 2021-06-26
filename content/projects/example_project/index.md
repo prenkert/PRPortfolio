@@ -6,7 +6,7 @@ project_post_date: 2015-05-01T22:12:03.284Z
 description: This is an example project
 project_category: Professional
 path: /example_project/index
-project_preview_thumbnail: ./src/images/me_new.jpg
+project_preview_thumbnail: ./me_new.jpg
 ---
 
 This is my example project

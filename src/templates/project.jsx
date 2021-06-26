@@ -15,27 +15,13 @@ import TwoGrid from "components/ImageGrid2"
 import OneGrid from "components/ImageGrid1"
 import FourGrid from "components/ImageGrid4"
 import dimensions from "styles/dimensions"
+import Img from "gatsby-image"
 import {
   BrowserView,
   MobileView,
   isBrowser,
   isMobile,
 } from "react-device-detect"
-
-const ProjectHeroContainer = styled("div")`
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  overflow: hidden;
-  position: relative;
-  padding-top: 2.5em;
-  @media (max-width: ${dimensions.maxwidthMobile}px) {
-    padding-top: 3em;
-  }
-  img {
-    max-width: 100%;
-  }
-`
 
 const Date = styled("h3")`
   padding: 0 0.25rem 0 0.25rem;
@@ -140,7 +126,6 @@ const WorkLink = styled(Link)`
   text-align: center;
 `
 
-
 export const query = graphql`
     query ProjectQuery($path: String!) {
       markdownRemark(frontmatter: { path: { eq: $path } }) {
@@ -152,6 +137,14 @@ export const query = graphql`
           project_category
           project_post_date(formatString: "YYYY")
           description
+          project_preview_thumbnail {
+            childImageSharp {
+              fluid(maxWidth:1600, quality: 100) {
+                ...GatsbyImageSharpFluid
+                ...GatsbyImageSharpFluidLimitPresentationSize
+              }
+            }
+          }
         }
       }
       site {
@@ -166,6 +159,7 @@ export const query = graphql`
     
 export default function ProjectTemplate ({ data }) {
   const { markdownRemark: project } = data
+  const project_preview_thumbnail = project.frontmatter.project_preview_thumbnail.childImageSharp.fluid
   return (
     <>
       <Helmet
@@ -189,6 +183,19 @@ export default function ProjectTemplate ({ data }) {
                 <Challenge>{project.frontmatter.description}</Challenge>
               </div>{" "}
             </Grid>
+
+            <Img 
+              fluid={project_preview_thumbnail}
+              style = {{
+                "max-height": "500px",
+                "margin": "auto",
+                "margin-bottom":"1rem"
+              }}
+              imgStyle = {{
+                "object-position": "center"
+              }}
+            />
+            
 
             <div className = "project-post">
               <h1>Post Body: {project.frontmatter.project_title}</h1>

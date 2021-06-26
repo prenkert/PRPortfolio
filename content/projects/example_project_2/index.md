@@ -6,7 +6,7 @@ project_post_date: 2020-05-01T22:12:03.284Z
 description: This is an example project 2
 project_category: "Personal"
 path: /example_project_2/index
-project_preview_thumbnail: ./src/images/me_old.jpg
+project_preview_thumbnail: ./me_old.jpg
 ---
 
 This is my example project
