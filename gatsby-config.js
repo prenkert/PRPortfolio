@@ -7,8 +7,6 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-transition-link`,
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     `react-scroll-horizontal`,
     `react-player`,
     `gatsby-plugin-catch-links`,
@@ -24,7 +22,6 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     }, 
-
     {
       resolve: `gatsby-source-filesystem`, // Required for Netlify CMS + Remark
       options: {
@@ -32,10 +29,27 @@ module.exports = {
         path: `${__dirname}/content/projects`,
       },
     },
-    `gatsby-transformer-remark`,
     `gatsby-transformer-sharp`,
-    'gatsby-image',
+    `gatsby-image`,
     `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              // It's important to specify the maxWidth (in pixels) of
+              // the content container as this plugin uses this as the
+              // base for generating different widths of each image.
+              maxWidth: 800,
+              showCaptions: true,
+              quality:100
+            },
+          },
+        ],
+      },
+    },
     {
       resolve: `gatsby-plugin-manifest`, // gatsby-plugin-manifest is for people to make this an icon on a mobile devices
       options: {

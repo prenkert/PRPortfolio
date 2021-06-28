@@ -28,21 +28,9 @@ const colorDict = {
 export default class Border extends React.Component {
     constructor(props) {
     super(props)
-    // this.scrollToMyRef = this.scrollToMyRef.bind(this)
-    // this.myRef = React.createRef()
   }
 
   render() {
-    return (
-      <>
-          <Circle style={{ background: `${ colorDict[this.props.category]}` }}>
-            {this.props.category}
-          </Circle>
-      </>
-    )
-  }
-
-/*   render() {
     return (
       <>
         {this.props.inactive || ( this.props.filter !== "none" && this.props.filter !== this.props.category) ? (
@@ -54,5 +42,5 @@ export default class Border extends React.Component {
         )}
       </>
     )
-  } */
+  }
 }

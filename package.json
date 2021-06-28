@@ -20,6 +20,7 @@
     "gatsby-plugin-sharp": "^2.5.7",
     "gatsby-plugin-transition-link": "^1.18.0",
     "gatsby-plugin-web-font-loader": "^1.0.4",
+    "gatsby-remark-images": "^5.5.0",
     "gatsby-source-filesystem": "^2.1.26",
     "gatsby-source-graphql-universal": "^3.3.0",
     "gatsby-transformer-remark": "^4.5.0",

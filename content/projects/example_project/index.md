@@ -9,7 +9,7 @@ path: /example_project/index
 project_preview_thumbnail: ./me_new.jpg
 ---
 
-This is my example project
+# This is my example project
 
  How exciting!
 
@@ -228,8 +228,4 @@ _single underscores_
 
 This paragraph has some `code` in it.
 
-    This paragraph has some `code` in it.
-
-![Alt Text](https://placehold.it/200x50 "Image Title")
-
-    ![Alt Text](https://placehold.it/200x50 "Image Title")
+![Here I am Again](./me_new.jpg "Me New")
