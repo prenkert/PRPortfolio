@@ -184,17 +184,11 @@ const RenderBody = ({ meta, data }) => (
         <Grid>
           <div style={{ gridColumn: "1/span 4" }}>
             <Circle category={"Person"} />
-            <Date>1997</Date>
-          </div>
-          <div style={{ gridColumn: "11/span 2" }}>
-            <Description>Challenge</Description>
+            <Date>{data.content.frontmatter.birthdate}</Date>
           </div>
           <div style={{ gridColumn: "1/span 9" }}>
-            <ProjectTitle>Philip Renkert</ProjectTitle>
+            <ProjectTitle>{data.content.frontmatter.display}</ProjectTitle>
           </div>
-          <div style={{ gridColumn: "11/span 10" }}>
-            <Challenge>Challenge Text</Challenge>
-          </div>{" "}
         </Grid>
         <TextContainer>
           <Grid>
@@ -214,21 +208,26 @@ const RenderBody = ({ meta, data }) => (
             </div>
             <div style={{ gridColumn: "7/span 3" }}>
               <Links>
-                <div>Link 1</div>
-                <div>Link 2</div>
+                {data.content.frontmatter.links.map((link, i) =>
+                    <li>
+                      <LinkItem href={link.url}>{link.label}</LinkItem>
+                    </li>
+                )}
               </Links>
               <Description>What I Do</Description>
               <Links>
-                <div>Services Text 1</div>
-                <div>Services Text 2</div>
+                {data.content.frontmatter.services.map((service) => (
+                    <div>{service}</div>
+                ))}
               </Links>
               <Description>Hobbies</Description>
               <Links>
-                  <div>Hobby Text 1</div>
-                  <div>Hobby Text 2</div>
+                {data.content.frontmatter.hobbies.map((hobby) => (
+                  <div>{hobby}</div>
+                ))}
               </Links>
             </div>
-            <BodyText>Body Text</BodyText>
+            <BodyText dangerouslySetInnerHTML={{ __html: data.content.html }}/>
           </Grid>
         </TextContainer>
       </BrowserView>
@@ -253,6 +252,16 @@ export const query = graphql`
         title
         description
         author
+      }
+    }
+    content: markdownRemark(fileAbsolutePath: {regex: "/information.md/"}) {
+      html
+      frontmatter {
+        display
+        birthdate
+        links 
+        services
+        hobbies
       }
     }
     headshot: file(relativePath: { eq: "me_new_about.jpg" }) {

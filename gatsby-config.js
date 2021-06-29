@@ -29,6 +29,13 @@ module.exports = {
         path: `${__dirname}/content/projects`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`, // Required for Netlify CMS + Remark
+      options: {
+        name: `content`,
+        path: `${__dirname}/content`,
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-image`,
     `gatsby-plugin-sharp`,
