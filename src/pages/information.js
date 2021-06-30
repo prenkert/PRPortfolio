@@ -83,9 +83,9 @@ const ProjectCardImageContainer = styled("div")`
   }
 `
 const TextContainer = styled("div")`
-  padding: 6rem 0 7.5rem 0;
+  padding: 2rem 0 2rem 0rem;
   @media (max-width: ${dimensions.maxwidthMobile}px) {
-    padding: 3rem 0 3rem 0;
+    padding: 1rem 0 1rem 0;
   }
 `
 const ProjectTitle = styled("h1")`
@@ -259,7 +259,10 @@ export const query = graphql`
       frontmatter {
         display
         birthdate
-        links 
+        links {
+          url 
+          label
+        }
         services
         hobbies
       }

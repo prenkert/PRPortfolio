@@ -10,7 +10,7 @@ const Container = styled(Link)`
   svg {
     position: fixed;
 
-    top: 3.75vw;
+    top: 2rem;
     left: 3.75vw;
     max-width: 50px;
     stroke: ${colors.grey600};

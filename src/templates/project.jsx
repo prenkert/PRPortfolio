@@ -168,6 +168,7 @@ export default function ProjectTemplate ({ data }) {
       <Layout>
         <Container>
           <BrowserView>
+            <Close/>
             <Grid>
               <div style={{ gridColumn: "1/span 4" }}>
                 <Circle category={project.frontmatter.project_category} inactive={false} filter={"none"} />
@@ -203,7 +204,7 @@ export default function ProjectTemplate ({ data }) {
                 className="ProjectBody"
                 dangerouslySetInnerHTML={{ __html: project.html }}
               />
-          </div>
+            </div>
           </BrowserView>
         </Container>
       </Layout>
