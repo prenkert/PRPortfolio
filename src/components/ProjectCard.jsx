@@ -6,6 +6,8 @@ import PropTypes from "prop-types"
 import Cursor from "./Cursor"
 import VideoPlayer from "./VideoPlayer"
 import Circle from "./Circle"
+import Img from 'gatsby-image'
+
 const ProjectCardContainer = styled("div")`
   transition: all 150ms ease-in-out;
   box-sizing: border-box;
@@ -46,38 +48,10 @@ const ProjectCardTitle = styled("h2")`
   padding-right: 1rem;
 `
 
-const ProjectCardImageContainer = styled("div")`
-  background-color: #fff;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  position: relative;
-  height: 22.75vh;
-  max-width: 100%;
-  @media (max-width: ${dimensions.maxwidthMobile}px) {
-    height: auto;
-  }
-  img {
-    height: 100%;
-    width: auto;
-    @media (max-width: ${dimensions.maxwidthMobile}px) {
-      width: 100%;
-      height: auto;
-    }
-  }
-`
 class ProjectCard extends React.Component {
   constructor(props) {
     super(props)
-    // var patt = /(?:(src=.*\/embed\/))(.*)(?=\?)/g
-    // var id = patt.exec(JSON.stringify(this.props.video.html))
-    if (this.props.video) {
-      var src = this.props.video[0].text
-    }
-
-    this.state = { source: src, active: false }
+    this.state = { active: false }
     this.onHover = this.onHover.bind(this)
     this.onOut = this.onOut.bind(this)
   }
@@ -87,8 +61,6 @@ class ProjectCard extends React.Component {
   onOut() {
     this.setState({ active: false })
   }
-
-
   render() {
     return (
       <React.Fragment>
@@ -97,26 +69,28 @@ class ProjectCard extends React.Component {
           onMouseLeave={() => this.onOut()}
         >
           <Cursor show={this.state.active}>
-            <LinkTo to={`/${this.props.uid}`}>
+            <LinkTo to={`${this.props.path}`}>
               <ProjectCardContent className="ProjectCardContent">
                 <ProjectCardTitle className="projectCardTitle">
-                  {this.props.title[0].text}
+                  {this.props.title}
                 </ProjectCardTitle>
               </ProjectCardContent>
-              <ProjectCardImageContainer className="ProjectCardImageContainer">
-                {this.props.video ? (
-                  <VideoPlayer
-                    src={this.state.source}
-                    id={this.state.videoId}
-                    active={this.state.active}
-                  />
-                ) : (
-                  <img
-                    src={this.props.thumbnail.url}
-                    alt={this.props.title[0].text}
-                  />
-                )}
-              </ProjectCardImageContainer>
+              <Img
+                fluid={this.props.thumbnail.childImageSharp.fluid}
+                style = {{
+                  "background-color": "#fff",
+                  "justify-content": "center",
+                  "align-items": "center",
+                  "overflow": "hidden",
+                  "position": "relative",
+                  "height": "22.75vh",
+                  "max-width": "100%"
+                }}
+                imgStyle = {{
+                  "height": "100%",
+                  "width": "100%",
+                }}
+              />
             </LinkTo>
             <ProjectCardCategory onClick={this.categoryFilter}>
               <Circle category={this.props.category} filter={this.props.category}/>
