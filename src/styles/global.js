@@ -2,6 +2,8 @@ import css from "@emotion/css"
 import colors from "styles/colors"
 import dimensions from "styles/dimensions"
 import fontFiles from "styles/fonts"
+import "@fontsource/roboto"
+import "@fontsource/source-sans-pro"
 
 const globalStyles = css`
   @font-face {
@@ -9,23 +11,8 @@ const globalStyles = css`
     src: url(${fontFiles.Monument}) format("opentype");
   }
 
-  html,
-  body,
-  #root {
-    margin: 0;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    min-height: 100%;
-  }
-
-  html {
-  }
-  video {
-    height: 100%;
-  }
-
   body {
-    font-family: "Monument";
+    font-family: "Source Sans Pro", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     scroll-behavior: smooth;
