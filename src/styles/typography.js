@@ -17,7 +17,7 @@ const typeStyles = css`
   }
 
   h2 {
-    font-size: 1.5vw;
+    font-size: 1.5rem;
     font-weight: 400;
     @media (max-width: ${dimensions.maxwidthMobile}px) {
       font-size: 1.33em;
@@ -27,7 +27,7 @@ const typeStyles = css`
 
   h3 {
     line-height: 1;
-    font-size: 1.15vw;
+    font-size: 1rem;
     font-weight: 400;
   }
 

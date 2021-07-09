@@ -56,7 +56,7 @@ export default class Header extends React.Component {
     return (
       <HeaderContainer>
         <LogoStyle>
-            Philip Renkert
+            Phil Renkert
         </LogoStyle>
         <h2 style={{   justifySelf: "center",  alignSelf: "end", fontSize: "1.5em", padding: 0, margin: 0 }}>
           <HeaderLinks>

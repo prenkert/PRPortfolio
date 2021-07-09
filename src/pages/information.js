@@ -7,9 +7,10 @@ import colors from "styles/colors"
 import dimensions from "styles/dimensions"
 import Layout from "components/Layout"
 import Img from "gatsby-image"
-import Circle from "components/Circle"
 import Close from "components/Close"
 import LinkItem from "components/LinkItem"
+import CircleDate from "components/CircleDate"
+import { ProjectTitle } from "../styles/sharedEmotion"
 import "styles/projectShowcase.scss"
 import {
   BrowserView,
@@ -17,20 +18,9 @@ import {
   isBrowser,
   isMobile,
 } from "react-device-detect"
-const Date = styled("h3")`
-  padding: 0 0.25rem 0 0.25rem;
-  margin: 0;
-
-  display: inline-block;
-  @media (max-width: ${dimensions.maxwidthMobile}px) {
-    display: block;
-  }
-`
 
 const BodyText = styled("div")`
 grid-column: 11/span 10;
-font-size: 1.5em;
-line-height: 1.5;
 a {
   -webkit-transition: border-bottom  ease .1s;
   -moz-transition: border-bottom  ease .1s;
@@ -47,7 +37,6 @@ a {
  
   }
 `
-
 const Links = styled("ul")`
   list-style-type: none;
   margin: 0;
@@ -88,20 +77,6 @@ const TextContainer = styled("div")`
     padding: 1rem 0 1rem 0;
   }
 `
-const ProjectTitle = styled("h1")`
-  margin: 0 auto;
-  padding-top: 0.25rem;
-  font-size: 2.75em;
-  padding-bottom: 1rem;
-  @media (max-width: ${dimensions.maxwidthMobile}px) {
-    margin: 0;
-    display: inline-block;
-    padding-right: 0.5em;
-    padding-bottom: 0.5em;
-    font-size: 2em;
-  }
-`
-
 const Container = styled("div")`
   margin: 0 auto;
   padding: 2rem 10.75vw 10em 10.75vw;
@@ -121,7 +96,7 @@ const Grid = styled("div")`
 `
 
 const Description = styled("div")`
-  font-size: 0.875rem;
+  font-size: 1rem;
   padding-bottom: 0.5rem;
   color: ${colors.grey600};
 `
@@ -183,8 +158,7 @@ const RenderBody = ({ meta, data }) => (
         <Close />
         <Grid>
           <div style={{ gridColumn: "1/span 4" }}>
-            <Circle category={"Person"} />
-            <Date>{data.content.frontmatter.birthdate}</Date>
+            <CircleDate category={"Person"} date={data.content.frontmatter.birthdate} filter={"none"}/>
           </div>
           <div style={{ gridColumn: "1/span 9" }}>
             <ProjectTitle>{data.content.frontmatter.display}</ProjectTitle>

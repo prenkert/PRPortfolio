@@ -6,7 +6,7 @@ import colors from "styles/colors"
 import { Link, graphql } from "gatsby"
 import Button from "components/_ui/Button"
 import Layout from "components/Layout"
-import Circle from "components/Circle"
+import CircleDate from "components/CircleDate"
 import LinkItem from "components/LinkItem"
 import Close from "components/Close"
 import VideoPlayer from "components/VideoGrid1"
@@ -15,6 +15,7 @@ import TwoGrid from "components/ImageGrid2"
 import OneGrid from "components/ImageGrid1"
 import FourGrid from "components/ImageGrid4"
 import dimensions from "styles/dimensions"
+import { ProjectTitle } from "../styles/sharedEmotion"
 import Img from "gatsby-image"
 import {
   BrowserView,
@@ -22,13 +23,6 @@ import {
   isBrowser,
   isMobile,
 } from "react-device-detect"
-
-const Date = styled("h3")`
-  padding: 0 0.25rem 0 0.25rem;
-  margin: 0;
-
-  display: inline-block;
-`
 
 const Additional = styled("div")`
   ul {
@@ -61,20 +55,6 @@ const TextContainer = styled("div")`
     padding: 3em 0 3em 0;
   }
 `
-const ProjectTitle = styled("h1")`
-  margin: 0 auto;
-  padding-top: 0.25rem;
-  font-size: 2.75em;
-  padding-bottom: 1rem;
-  @media (max-width: ${dimensions.maxwidthMobile}px) {
-    margin: 0;
-    display: inline-block;
-    padding-right: 0.5em;
-    padding-bottom: 0.5em;
-    font-size: 2em;
-  }
-`
-
 const Container = styled("div")`
   margin: 0 auto;
   padding: 2rem 10.75vw 10em 10.75vw;
@@ -92,7 +72,7 @@ const Grid = styled("div")`
 `
 
 const Description = styled("div")`
-  font-size: 0.875rem;
+  font-size: 1rem;
   padding-top: 1.5rem;
   padding-bottom: 0.5rem;
   color: ${colors.grey600};
@@ -170,15 +150,16 @@ export default function ProjectTemplate ({ data }) {
           <BrowserView>
             <Close/>
             <Grid>
-              <div style={{ gridColumn: "1/span 4" }}>
-                <Circle category={project.frontmatter.project_category} inactive={false} filter={"none"} />
-                <Date>{project.frontmatter.project_post_date}</Date>
-              </div>
-              <div style={{ gridColumn: "11/span 2" }}>
+              <Grid>
+                <div style={{ gridColumn: "1/span 4" }}>
+                  <CircleDate category={project.frontmatter.project_category} date={project.frontmatter.project_post_date} filter={"none"}/>
+                </div>
+                <div style={{ gridColumn: "1/span 9" }}>
+                  <ProjectTitle>{project.frontmatter.project_title}</ProjectTitle>
+                </div>
+              </Grid>
+              <div style={{ gridColumn: "11/span 2", gridRow:"1" }}>
                 <Description>Upshot</Description>
-              </div>
-              <div style={{ gridColumn: "1/span 9" }}>
-                <ProjectTitle>{project.frontmatter.project_title}</ProjectTitle>
               </div>
               <div style={{ gridColumn: "11/span 10" }}>
                 <Challenge>{project.frontmatter.description}</Challenge>

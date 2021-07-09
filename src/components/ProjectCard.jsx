@@ -4,8 +4,7 @@ import styled from "@emotion/styled"
 import dimensions from "styles/dimensions"
 import PropTypes from "prop-types"
 import Cursor from "./Cursor"
-import VideoPlayer from "./VideoPlayer"
-import Circle from "./Circle"
+import CircleDate from "./CircleDate"
 import Img from 'gatsby-image'
 
 const ProjectCardContainer = styled("div")`
@@ -93,11 +92,7 @@ class ProjectCard extends React.Component {
               />
             </LinkTo>
             <ProjectCardCategory onClick={this.categoryFilter}>
-              <Circle category={this.props.category} filter={this.props.category}/>
-
-              <div style={{ paddingLeft: "1rem", display: "inline-block" }}>
-                {this.props.date.substring(0, 4)}
-              </div>
+              <CircleDate category={this.props.category} date={this.props.date.substring(0,4)} filter={"none"}/>
             </ProjectCardCategory>{" "}
           </Cursor>
         </ProjectCardContainer>

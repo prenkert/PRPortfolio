@@ -3,7 +3,6 @@ import ProjectCard from "components/ProjectCard"
 import GridLayout from "components/GridLayout"
 import styled from "@emotion/styled"
 import dimensions from "styles/dimensions"
-import NavHelp from "components/NavHelp"
 
 const InlBlk = styled("div")`
   display: inline-block;

@@ -32,7 +32,7 @@ export default class Border extends React.Component {
   render() {
     return (
       <>
-        {this.props.inactive || ( this.props.filter !== "none" && this.props.filter !== this.props.category) ? (
+        {!(this.props.category in colorDict) || ( this.props.filter !== "none" && this.props.filter !== this.props.category) ? (
           <Circle style={{ background: `${colors.grey400}` }}>{this.props.category}</Circle>
         ) : (
           <Circle style={{ background: `${ colorDict[this.props.category]}` }}>
