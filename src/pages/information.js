@@ -3,14 +3,13 @@ import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 import { graphql, Link } from "gatsby"
 import styled from "@emotion/styled"
-import colors from "styles/colors"
 import dimensions from "styles/dimensions"
 import Layout from "components/Layout"
 import Img from "gatsby-image"
 import Close from "components/Close"
 import LinkItem from "components/LinkItem"
 import CircleDate from "components/CircleDate"
-import { ProjectTitle } from "../styles/sharedEmotion"
+import { ProjectTitle, ProjectHeaderGrid, Description, Container } from "../styles/sharedEmotion"
 import "styles/projectShowcase.scss"
 import {
   BrowserView,
@@ -72,18 +71,9 @@ const ProjectCardImageContainer = styled("div")`
   }
 `
 const TextContainer = styled("div")`
-  padding: 2rem 0 2rem 0rem;
-  @media (max-width: ${dimensions.maxwidthMobile}px) {
-    padding: 1rem 0 1rem 0;
-  }
+  padding: 0rem 0 1rem 0rem;
 `
-const Container = styled("div")`
-  margin: 0 auto;
-  padding: 2rem 10.75vw 10em 10.75vw;
-  @media (max-width: ${dimensions.maxwidthMobile}px) {
-    padding: 2rem 3.75vw 10em 3.75vw;
-  }
-`
+
 const Grid = styled("div")`
   display: grid;
   grid-template-columns: repeat(20, 1fr);
@@ -92,23 +82,6 @@ const Grid = styled("div")`
     padding-left: 0vw;
     row-gap: 0rem;
     grid-template-columns: 1fr 1fr;
-  }
-`
-
-const Description = styled("div")`
-  font-size: 1rem;
-  padding-bottom: 0.5rem;
-  color: ${colors.grey600};
-`
-
-const Challenge = styled("h3")`
-  margin: 0;
-  padding: 0;
-  line-height: 1;
-  font-size: 1.5em;
-  display: inline;
-  @media (max-width: ${dimensions.maxwidthMobile}px) {
-    display: block;
   }
 `
 
@@ -156,14 +129,14 @@ const RenderBody = ({ meta, data }) => (
     <Container>
       <BrowserView>
         <Close />
-        <Grid>
-          <div style={{ gridColumn: "1/span 4" }}>
-            <CircleDate category={"Person"} date={data.content.frontmatter.birthdate} filter={"none"}/>
-          </div>
-          <div style={{ gridColumn: "1/span 9" }}>
-            <ProjectTitle>{data.content.frontmatter.display}</ProjectTitle>
-          </div>
-        </Grid>
+          <ProjectHeaderGrid>
+              <div style={{gridRow:1, gridColumn:1}}>
+                <CircleDate category={"Person"} date={data.content.frontmatter.birthdate} filter={"none"}/>
+              </div>
+              <div style={{gridRow:2,gridColumn:1}}>
+                <ProjectTitle>{data.content.frontmatter.display}</ProjectTitle>
+              </div>
+          </ProjectHeaderGrid>
         <TextContainer>
           <Grid>
             <div style={{ gridColumn: "1/span 5" }}>
