@@ -2,13 +2,9 @@ import React from "react"
 import ProjectCard from "components/ProjectCard"
 import GridLayout from "components/GridLayout"
 import styled from "@emotion/styled"
-import dimensions from "styles/dimensions"
 
 const InlBlk = styled("div")`
   display: inline-block;
-  @media (max-width: ${dimensions.maxwidthMobile}px) {
-    display: block;
-  }
 `
 export default class ProjectGrid extends React.Component {
   render() {

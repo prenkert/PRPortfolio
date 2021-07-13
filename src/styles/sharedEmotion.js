@@ -3,11 +3,10 @@ import dimensions from "./dimensions"
 import colors from "styles/colors"
 
 export const Container = styled("div")`
-  margin: 0 auto;
-  padding: 2rem 10.75vw 10em 10.75vw;
-  @media (max-width: ${dimensions.maxwidthMobile}px) {
-    padding: 2rem 3.75vw 10em 3.75vw;
-  }
+  width: auto;
+  height: auto;
+  top: 0;
+  padding: 0 ${dimensions.projectAlignLeft} 10rem ${dimensions.projectAlignLeft};
 `
 export const ProjectTitle = styled("h1")`
   font-size: 2.75em;

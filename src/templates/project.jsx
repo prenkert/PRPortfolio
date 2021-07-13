@@ -64,43 +64,41 @@ export default function ProjectTemplate ({ data }) {
         title={`${project.frontmatter.project_title} | Philip Renkert`}
       />
       <Layout>
+        <Close/>
         <Container>
-          <BrowserView>
-            <Close/>
-            <ProjectHeaderGrid>
-              <div style={{gridRow:1, gridColumn:1}}>
-                <CircleDate category={project.frontmatter.project_category} date={project.frontmatter.project_post_date} filter={"none"}/>
-              </div>
-              <div style={{gridRow:2,gridColumn:1}}>
-                <ProjectTitle>{project.frontmatter.project_title}</ProjectTitle>
-              </div>
-              <div style={{gridArea: "1 / 2 / 3 / auto"}}>
-                <Description>Upshot</Description>
-                <Challenge>{project.frontmatter.description}</Challenge>
-              </div>{" "}
-            </ProjectHeaderGrid>
+              <ProjectHeaderGrid>
+                <div style={{gridRow:1, gridColumn:1}}>
+                  <CircleDate category={project.frontmatter.project_category} date={project.frontmatter.project_post_date} filter={"none"}/>
+                </div>
+                <div style={{gridRow:2,gridColumn:1}}>
+                  <ProjectTitle>{project.frontmatter.project_title}</ProjectTitle>
+                </div>
+                <div style={{gridArea: "1 / 2 / 3 / auto"}}>
+                  <Description>Upshot</Description>
+                  <Challenge>{project.frontmatter.description}</Challenge>
+                </div>{" "}
+              </ProjectHeaderGrid>
 
-            <Img 
-              fluid={project_preview_thumbnail}
-              style = {{
-                "max-height": "500px",
-                "margin": "auto",
-                "margin-bottom":"1rem"
-              }}
-              imgStyle = {{
-                "object-position": "center"
-              }}
-            />
-            
-
-            <div className = "project-post">
-              <h1>Post Body: {project.frontmatter.project_title}</h1>
-              <div
-                className="ProjectBody"
-                dangerouslySetInnerHTML={{ __html: project.html }}
+              <Img 
+                fluid={project_preview_thumbnail}
+                style = {{
+                  "max-height": "500px",
+                  "margin": "auto",
+                  "margin-bottom":"1rem"
+                }}
+                imgStyle = {{
+                  "object-position": "center"
+                }}
               />
-            </div>
-          </BrowserView>
+              
+
+              <div className = "project-post">
+                <h1>Post Body: {project.frontmatter.project_title}</h1>
+                <div
+                  className="ProjectBody"
+                  dangerouslySetInnerHTML={{ __html: project.html }}
+                />
+              </div>
         </Container>
       </Layout>
     </>

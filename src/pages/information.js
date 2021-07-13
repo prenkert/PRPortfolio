@@ -125,10 +125,9 @@ const RenderBody = ({ meta, data }) => (
         },
       ].concat(meta)}
     />
-
+    <Close/>
     <Container>
       <BrowserView>
-        <Close />
           <ProjectHeaderGrid>
               <div style={{gridRow:1, gridColumn:1}}>
                 <CircleDate category={"Person"} date={data.content.frontmatter.birthdate} filter={"none"}/>

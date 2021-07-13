@@ -6,28 +6,10 @@ import { Global } from "@emotion/core"
 import globalStyles from "styles/global"
 import typeStyles from "styles/typography"
 import dimensions from "styles/dimensions"
-import Footer from "components/Footer"
-import Header from "components/Header"
-import Cursor from "components/Cursor"
 
 const LayoutContainer = styled.div`
-//   max-width: ${dimensions.maxwidthDesktop}px;
-  padding-left: ${dimensions.paddingHorizontalDesktop}em;
-  padding-right: ${dimensions.paddingHorizontalDesktop}em;
+  padding-top: ${dimensions.paddingVerticalDesktop};
   margin: 0 auto;
-
-  @media (max-width: ${dimensions.maxwidthTablet}px) {
-    padding-left: ${dimensions.paddingHorizontalTablet}em;
-    padding-right: ${dimensions.paddingHorizontalTablet}em;
-  }
-
-  @media (max-width: ${dimensions.maxwidthMobile}px) {
-    padding-left: ${dimensions.paddingHorizontalMobile}em;
-    padding-right: ${dimensions.paddingHorizontalMobile}em;
-  }
-
-
-
 `
 
 const Layout = ({ children }) => (

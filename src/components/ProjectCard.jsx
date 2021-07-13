@@ -9,11 +9,10 @@ import Img from 'gatsby-image'
 
 const ProjectCardContainer = styled("div")`
   transition: all 150ms ease-in-out;
+  min-width: 100px;
   box-sizing: border-box;
-
-  @media (max-width: ${dimensions.maxwidthMobile}px) {
-    margin-bottom: 1em;
-  }
+  min-width: min-content;
+  dipslay: inline-block
 `
 
 const LinkTo = styled(Link)`
@@ -25,15 +24,6 @@ const LinkTo = styled(Link)`
 `
 const ProjectCardContent = styled("div")`
   padding: 0.5em 1em 0.5em 0em;
-  position: relative;
-
-  @media (max-width: ${dimensions.maxwidthMobile}px) {
-    padding: 1em 2.5em 0.5em 0em;
-  }
-
-  @media (max-width: ${dimensions.maxwidthTablet}px) {
-    grid-row: 2;
-  }
 `
 
 const ProjectCardCategory = styled("h3")`
@@ -43,8 +33,8 @@ const ProjectCardCategory = styled("h3")`
 const ProjectCardTitle = styled("h2")`
   margin-bottom: 0.5em;
   margin-top: 0.5em;
-  display: inline-block;
   padding-right: 1rem;
+  white-space: nowrap
 `
 
 class ProjectCard extends React.Component {

@@ -6,12 +6,8 @@ import dimensions from "styles/dimensions"
 import "@fontsource/lobster"
 
 const HeaderContainer = styled("div")`
-  position: fixed;
-  left: 3.75vw;
-  top: 1.8vw;
-  line-height: 4.5vw;
-  z-index: 100;
-
+  position: relative;
+  left: ${dimensions.homeAlignLeft};
   display: inline-grid;
   grid-template-columns: repeat(2, auto);
   }
@@ -20,7 +16,8 @@ const HeaderContainer = styled("div")`
 const LogoStyle = styled("h1")`
   font-family:"Lobster";
   font-size: 3em;
-  align-self: start
+  align-self: start;
+  white-space: nowrap
 `
 
 const HeaderLinks = styled("div")`

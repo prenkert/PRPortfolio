@@ -58,14 +58,10 @@ const RenderBody = ({
         },
       ].concat(meta)}
     />
-
-    {/* <FeaturedProjectCard projects={filteredProjects} /> */}
     
     <Header />
-      {/* Passing a click event from the way more button upwards out of project grid would allow the button scroll */}
     <HorizontalCalc years={years} anim={0}>
       <ProjectGrid projects={filteredProjects} />
-     { /*<ListGrid years={years} projects={projects} />*/ }
     </HorizontalCalc>
   </>
 )
