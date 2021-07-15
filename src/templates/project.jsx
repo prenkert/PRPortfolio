@@ -1,28 +1,15 @@
 import React from "react"
-import PropTypes from "prop-types"
 import Helmet from "react-helmet"
-import styled from "@emotion/styled"
-import colors from "styles/colors"
+import styled from '@emotion/styled'
 import { Link, graphql } from "gatsby"
 import Button from "components/_ui/Button"
 import Layout from "components/Layout"
 import CircleDate from "components/CircleDate"
 import LinkItem from "components/LinkItem"
 import Close from "components/Close"
-import VideoPlayer from "components/VideoGrid1"
-import VideoPlayer2 from "components/VideoGrid2"
-import TwoGrid from "components/ImageGrid2"
-import OneGrid from "components/ImageGrid1"
-import FourGrid from "components/ImageGrid4"
 import dimensions from "styles/dimensions"
-import {Container, ProjectTitle, ProjectHeaderGrid, Description, Challenge} from "../styles/sharedEmotion"
+import {Container, ProjectTitle, ProjectHeaderGrid, Description, Challenge, Links} from "../styles/sharedEmotion"
 import Img from "gatsby-image"
-import {
-  BrowserView,
-  MobileView,
-  isBrowser,
-  isMobile,
-} from "react-device-detect"
 
 export const query = graphql`
     query ProjectQuery($path: String!) {
@@ -35,6 +22,11 @@ export const query = graphql`
           project_category
           project_post_date(formatString: "YYYY")
           description
+          tools
+          project_links {
+            url
+            label
+          }
           project_preview_thumbnail {
             childImageSharp {
               fluid(maxWidth:1600, quality: 100) {
@@ -54,7 +46,20 @@ export const query = graphql`
       }
     }
     `
-    
+const MainContainer = styled("div")`
+  display: flex;
+  flex-flow: column nowrap;
+  position: relative;
+  height: calc(100vh - ${dimensions.paddingVerticalDesktop});
+`
+const ProjectInfoGrid = styled("div")`
+  display: grid;
+  grid-template-columns: max-content max-content auto;
+  column-gap: 2rem;
+  margin-bottom: 2rem;
+  height: max-content;
+`
+
 export default function ProjectTemplate ({ data }) {
   const { markdownRemark: project } = data
   const project_preview_thumbnail = project.frontmatter.project_preview_thumbnail.childImageSharp.fluid
@@ -66,34 +71,55 @@ export default function ProjectTemplate ({ data }) {
       <Layout>
         <Close/>
         <Container>
-              <ProjectHeaderGrid>
-                <div style={{gridRow:1, gridColumn:1}}>
-                  <CircleDate category={project.frontmatter.project_category} date={project.frontmatter.project_post_date} filter={"none"}/>
-                </div>
-                <div style={{gridRow:2,gridColumn:1}}>
-                  <ProjectTitle>{project.frontmatter.project_title}</ProjectTitle>
-                </div>
-                <div style={{gridArea: "1 / 2 / 3 / auto"}}>
-                  <Description>Upshot</Description>
-                  <Challenge>{project.frontmatter.description}</Challenge>
-                </div>{" "}
-              </ProjectHeaderGrid>
+              <MainContainer>
+                <ProjectHeaderGrid>
+                  <div style={{gridRow:1, gridColumn:1}}>
+                    <CircleDate category={project.frontmatter.project_category} date={project.frontmatter.project_post_date} filter={"none"}/>
+                  </div>
+                  <div style={{gridRow:2,gridColumn:1}}>
+                    <ProjectTitle>{project.frontmatter.project_title}</ProjectTitle>
+                  </div>
+                </ProjectHeaderGrid>
 
-              <Img 
-                fluid={project_preview_thumbnail}
-                style = {{
-                  "max-height": "500px",
-                  "margin": "auto",
-                  "margin-bottom":"1rem"
-                }}
-                imgStyle = {{
-                  "object-position": "center"
-                }}
-              />
-              
+                <Img 
+                  fluid={project_preview_thumbnail}
+                  style = {{
+                    "flex": "1 1 auto",
+                    "margin-bottom":"2rem",
+                    "overflow": "hidden"
+                  }}
+                  imgStyle = {{
+                    "object-position": "center"
+                  }}
+                />
 
+                <ProjectInfoGrid>
+                  <div style={{gridColumn: 1}}>
+                    <Description>Links</Description>
+                    <Links style={{paddingBottom: 0}}>
+                      {project.frontmatter.project_links.map((link, i) =>
+                          <li>
+                            <LinkItem href={link.url}>{link.label}</LinkItem>
+                          </li>
+                      )}
+                    </Links>
+                  </div>
+                  <div style={{gridColumn: 2}}>
+                    <Description>Tools</Description>
+                    <Links style={{paddingBottom: 0}}>
+                      {project.frontmatter.tools.map((tool) => (
+                          <li>{tool}</li>
+                      ))}
+                    </Links>
+                  </div>
+                  <div style={{gridColumn: 3}}>
+                    <Description>Upshot</Description>
+                    <Challenge>{project.frontmatter.description}</Challenge>
+                  </div>
+                </ProjectInfoGrid>              
+              </MainContainer>
               <div className = "project-post">
-                <h1>Post Body: {project.frontmatter.project_title}</h1>
+                <Description>Details</Description>
                 <div
                   className="ProjectBody"
                   dangerouslySetInnerHTML={{ __html: project.html }}

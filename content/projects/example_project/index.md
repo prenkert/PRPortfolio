@@ -7,10 +7,12 @@ description: This is an example project
 project_category: Professional
 path: /example_project/index
 project_preview_thumbnail: ./me_new.jpg
+tools: ["Tool 1", "Tool 2"]
+project_links: [
+    {"url": "https://www.linkedin.com/in/philiprenkert/", "label": "LinkedIn"},
+    {"url": "https://github.com/prenkert", "label": "GitHub"}
+]
 ---
-
-# This is my example project
-
  How exciting!
 
 I'm sure I'll write a lot more interesting things in the future.

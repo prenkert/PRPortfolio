@@ -9,7 +9,7 @@ import Img from "gatsby-image"
 import Close from "components/Close"
 import LinkItem from "components/LinkItem"
 import CircleDate from "components/CircleDate"
-import { ProjectTitle, ProjectHeaderGrid, Description, Container } from "../styles/sharedEmotion"
+import { ProjectTitle, ProjectHeaderGrid, Description, Container, Links} from "../styles/sharedEmotion"
 import "styles/projectShowcase.scss"
 import {
   BrowserView,
@@ -36,16 +36,7 @@ a {
  
   }
 `
-const Links = styled("ul")`
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  padding-bottom: 2rem;
-  text-align: left;
-  @media (max-width: ${dimensions.maxwidthMobile}px) {
-    display: block;
-  }
-`
+
 const ProjectCardImageContainer = styled("div")`
   display: flex;
   justify-content: left;

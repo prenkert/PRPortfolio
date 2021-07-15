@@ -7,6 +7,11 @@ description: This is an example project 2
 project_category: "Personal"
 path: /example_project_2/index
 project_preview_thumbnail: ./me_old.jpg
+tools: ["Tool 1", "Tool 2"]
+project_links: [
+    {"url": "https://www.linkedin.com/in/philiprenkert/", "label": "LinkedIn"},
+    {"url": "https://github.com/prenkert", "label": "GitHub"}
+]
 ---
 
 This is my example project

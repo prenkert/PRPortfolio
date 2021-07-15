@@ -15,6 +15,7 @@ export const ProjectTitle = styled("h1")`
 `
 export const ProjectHeaderGrid = styled("div")`
   display: grid;
+  height: max-content;
   grid-template-columns: 1fr 2fr;
   grid-template-rows: auto auto;
   row-gap: 1em;
@@ -30,4 +31,15 @@ export const Challenge = styled("h3")`
   padding: 0;
   line-height: 1;
   display: inline;
+`
+
+export const Links = styled("ul")`
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  padding-bottom: 2rem;
+  text-align: left;
+  @media (max-width: ${dimensions.maxwidthMobile}px) {
+    display: block;
+  }
 `
