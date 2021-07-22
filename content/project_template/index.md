@@ -3,7 +3,6 @@ project_title: Project Title
 featured_project: true
 completed: true
 project_post_date: 2015-05-01T22:12:03.284Z
-description: This is an example project
 project_category: Professional
 path: /example_project/index
 project_preview_thumbnail: ./me_new.jpg
@@ -12,6 +11,7 @@ project_links: [
     {"url": "https://www.linkedin.com/in/philiprenkert/", "label": "LinkedIn"},
     {"url": "https://github.com/prenkert", "label": "GitHub"}
 ]
+description: This is an example project
 ---
  How exciting!
 

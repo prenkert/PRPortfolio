@@ -48,17 +48,6 @@ const globalStyles = css`
       }
     }
   }
-
-  /*
-    A workaround for forcing accessibility wrappers
-    to have a 100% height.
-    Reach Router issue here: https: //github.com/reach/router/issues/63
-    */
-  #___gatsby,
-  div[role="group"][tabindex] {
-    height: 100%;
-    min-height: 100% !important;
-  }
 `
 
 export default globalStyles

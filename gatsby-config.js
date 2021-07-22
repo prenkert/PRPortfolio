@@ -1,3 +1,5 @@
+const maxWidth = 800
+
 module.exports = {
   siteMetadata: {
     title: `Philip Renkert`,
@@ -49,9 +51,9 @@ module.exports = {
               // It's important to specify the maxWidth (in pixels) of
               // the content container as this plugin uses this as the
               // base for generating different widths of each image.
-              maxWidth: 800,
-              showCaptions: true,
-              quality:75
+              maxWidth: maxWidth,
+              linkImagesToOriginal: false,
+              quality:75,
             },
           },
         ],
