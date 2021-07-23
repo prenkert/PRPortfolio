@@ -59,6 +59,14 @@ const ProjectInfoGrid = styled("div")`
   margin-bottom: 2rem;
   height: max-content;
 `
+const ProjectBody = styled("div")`
+  .gatsby-resp-image-background-image {
+    padding-bottom: 0 !important;
+  }
+  .gatsby-resp-image-image {
+    position: relative !important;
+  } 
+`
 
 export default function ProjectTemplate ({ data }) {
   const { markdownRemark: project } = data
@@ -120,8 +128,7 @@ export default function ProjectTemplate ({ data }) {
               </MainContainer>
               <div className = "project-post">
                 <Description>Details</Description>
-                <div
-                  className="ProjectBody"
+                <ProjectBody
                   dangerouslySetInnerHTML={{ __html: project.html }}
                 />
               </div>

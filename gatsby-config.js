@@ -54,6 +54,7 @@ module.exports = {
               maxWidth: maxWidth,
               linkImagesToOriginal: false,
               quality:75,
+              disableBgImage: true
             },
           },
         ],
