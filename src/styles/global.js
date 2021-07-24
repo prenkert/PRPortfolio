@@ -1,4 +1,4 @@
-import css from "@emotion/css"
+import {css}from "@emotion/react"
 import colors from "styles/colors"
 import dimensions from "styles/dimensions"
 import fontFiles from "styles/fonts"
@@ -49,5 +49,4 @@ const globalStyles = css`
     }
   }
 `
-
 export default globalStyles

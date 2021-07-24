@@ -19,7 +19,12 @@ import {
 } from "react-device-detect"
 
 const BodyText = styled("div")`
-grid-column: 11/span 10;
+grid-column: 3;
+overflow: hidden scroll;
+position: relative;
+padding-right: 2rem;
+bottom: 0px; 
+height: auto;
 a {
   -webkit-transition: border-bottom  ease .1s;
   -moz-transition: border-bottom  ease .1s;
@@ -36,44 +41,23 @@ a {
  
   }
 `
-
-const ProjectCardImageContainer = styled("div")`
-  display: flex;
-  justify-content: left;
-  align-items: flex-end;
+const LayoutContainer = styled("div")`
+  height: calc(100vh - 2*${dimensions.paddingVerticalDesktop});
+  paddingBottom: "${dimensions.paddingVerticalDesktop}";
   overflow: hidden;
-  position: relative;
-  padding-bottom: 1.5rem;
-  max-width: 100%;
-
-  @media (max-width: ${dimensions.maxwidthTablet}px) {
-    padding-top: 3em;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-  }
-
-  img {
-    width: 100%;
-    height: auto;
-    @media (max-width: ${dimensions.maxwidthTablet}px) {
-      max-width: 300px;
-    }
-  }
+  display: flex;
+  flex-flow: column
 `
 const TextContainer = styled("div")`
-  padding: 0rem 0 1rem 0rem;
+  margin: 0rem 0 2rem 0rem;
+  flex: 1;
+  overflow: hidden;
 `
-
 const Grid = styled("div")`
   display: grid;
-  grid-template-columns: repeat(20, 1fr);
-  @media (max-width: ${dimensions.maxwidthMobile}px) {
-    margin-bottom: 2em;
-    padding-left: 0vw;
-    row-gap: 0rem;
-    grid-template-columns: 1fr 1fr;
-  }
+  height: 100%;
+  grid-template-columns: 400px max-content 2fr;
+  column-gap: 50px;
 `
 
 const RenderBody = ({ meta, data }) => (
@@ -119,6 +103,7 @@ const RenderBody = ({ meta, data }) => (
     <Close/>
     <Container>
       <BrowserView>
+        <LayoutContainer>
           <ProjectHeaderGrid>
               <div style={{gridRow:1, gridColumn:1}}>
                 <CircleDate category={"Person"} date={data.content.frontmatter.birthdate} filter={"none"}/>
@@ -129,21 +114,21 @@ const RenderBody = ({ meta, data }) => (
           </ProjectHeaderGrid>
         <TextContainer>
           <Grid>
-            <div style={{ gridColumn: "1/span 5" }}>
+            <div style={{ gridColumn: "1"}}>
               {" "}
               <Description>Photos</Description>
             </div>
-            <div style={{ gridColumn: "7/span 3" }}>
+            <div style={{ gridColumn: "2" }}>
               <Description>Links</Description>
             </div>
 
-            <div style={{ gridColumn: "11/span 10" }}>
+            <div style={{ gridColumn: "3" }}>
               <Description>Details</Description>
             </div>
-            <div style={{ gridColumn: "1/span 5" }}>
+            <div style={{ gridColumn: "1" }}>
               <Img fluid={data.headshot.childImageSharp.fluid} />
             </div>
-            <div style={{ gridColumn: "7/span 3" }}>
+            <div style={{ gridColumn: "2" }}>
               <Links>
                 {data.content.frontmatter.links.map((link, i) =>
                     <li>
@@ -167,6 +152,7 @@ const RenderBody = ({ meta, data }) => (
             <BodyText dangerouslySetInnerHTML={{ __html: data.content.html }}/>
           </Grid>
         </TextContainer>
+        </LayoutContainer>
       </BrowserView>
     </Container>
   </>

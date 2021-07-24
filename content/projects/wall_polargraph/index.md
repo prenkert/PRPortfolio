@@ -5,7 +5,7 @@ completed: true
 project_post_date: "2020"
 project_category: Personal
 path: /wall_polargraph/index
-project_preview_thumbnail: ./wall_polar_hero.jpg
+project_preview_thumbnail: wall_polar_hero.jpg
 tools: ["MATLAB", "SolidWorks", "LulzBot Mini 2", "Arduino IDE", "Teensy 3.6"]
 project_links: [
     {"url": "https://github.com/prenkert/WallPolargraph", "label": "GitHub"}
@@ -25,3 +25,5 @@ I opted for a different approach with all of the electronics in one tight packag
 ![Simulation of system dynamics](./animationGIF.gif)
 
 The project is far from polished, but it was a great introduction to the theory and practice of cable-actuated robotics.
+
+Can we handle changes to?

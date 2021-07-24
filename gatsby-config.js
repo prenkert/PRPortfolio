@@ -23,13 +23,6 @@ module.exports = {
         name: `images`,
         path: `${__dirname}/src/images`,
       },
-    }, 
-    {
-      resolve: `gatsby-source-filesystem`, // Required for Netlify CMS + Remark
-      options: {
-        name: `projects`,
-        path: `${__dirname}/content/projects`,
-      },
     },
     {
       resolve: `gatsby-source-filesystem`, // Required for Netlify CMS + Remark
@@ -37,7 +30,14 @@ module.exports = {
         name: `content`,
         path: `${__dirname}/content`,
       },
-    },
+    }, 
+    {
+      resolve: `gatsby-source-filesystem`, // Required for Netlify CMS + Remark
+      options: {
+        name: `projects`,
+        path: `${__dirname}/content/projects`,
+      },
+    }, 
     `gatsby-transformer-sharp`,
     `gatsby-image`,
     `gatsby-plugin-sharp`,
@@ -45,18 +45,18 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
-          {
-            resolve: `gatsby-remark-images`,
-            options: {
-              // It's important to specify the maxWidth (in pixels) of
-              // the content container as this plugin uses this as the
-              // base for generating different widths of each image.
-              maxWidth: maxWidth,
-              linkImagesToOriginal: false,
-              quality:75,
-              disableBgImage: true
+            {
+              resolve: 'gatsby-remark-images',
+              options: {
+                // It's important to specify the maxWidth (in pixels) of
+                // the content container as this plugin uses this as the
+                // base for generating different widths of each image.
+                maxWidth: maxWidth,
+                linkImagesToOriginal: false,
+                quality:75,
+                disableBgImage: true
+              },
             },
-          },
         ],
       },
     },

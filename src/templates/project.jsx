@@ -60,6 +60,7 @@ const ProjectInfoGrid = styled("div")`
   height: max-content;
 `
 const ProjectBody = styled("div")`
+  padding-bottom: ${dimensions.paddingVerticalDesktop};
   .gatsby-resp-image-background-image {
     padding-bottom: 0 !important;
   }

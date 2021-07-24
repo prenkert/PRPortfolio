@@ -1,9 +1,9 @@
-import css from "@emotion/css"
+import {css} from "@emotion/react"
 import dimensions from "styles/dimensions"
 
 const typeStyles = css`
   h1 {
-    font-size: 2em;
+    font-size: 2rem;
     line-height: 1;
     font-weight: 400;
     margin: 0 0 0 0;
@@ -17,11 +17,8 @@ const typeStyles = css`
   }
 
   h2 {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 400;
-    @media (max-width: ${dimensions.maxwidthMobile}px) {
-      font-size: 1.33em;
-    }
     line-height: 1.1;
   }
 

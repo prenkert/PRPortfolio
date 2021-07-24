@@ -22,9 +22,6 @@ const LinkTo = styled(Link)`
     text-decoration: underline;
   }
 `
-const ProjectCardContent = styled("div")`
-  padding: 0.5em 1em 0.5em 0em;
-`
 
 const ProjectCardCategory = styled("h3")`
   line-height: 1.5;
@@ -32,7 +29,7 @@ const ProjectCardCategory = styled("h3")`
 
 const ProjectCardTitle = styled("h2")`
   margin-bottom: 0.5em;
-  margin-top: 0.5em;
+  margin-top: 0em;
   padding-right: 1rem;
   white-space: nowrap
 `
@@ -59,11 +56,9 @@ class ProjectCard extends React.Component {
         >
           <Cursor show={this.state.active}>
             <LinkTo to={`${this.props.path}`}>
-              <ProjectCardContent className="ProjectCardContent">
-                <ProjectCardTitle className="projectCardTitle">
-                  {this.props.title}
-                </ProjectCardTitle>
-              </ProjectCardContent>
+              <ProjectCardTitle className="projectCardTitle">
+                {this.props.title}
+              </ProjectCardTitle>
               <Img
                 fluid={this.props.thumbnail.childImageSharp.fluid}
                 style = {{

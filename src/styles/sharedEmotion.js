@@ -6,7 +6,7 @@ export const Container = styled("div")`
   width: auto;
   height: auto;
   top: 0;
-  padding: 0 ${dimensions.projectAlignLeft} 10rem ${dimensions.projectAlignLeft};
+  padding: 0 ${dimensions.projectAlignLeft} 0 ${dimensions.projectAlignLeft};
 `
 export const ProjectTitle = styled("h1")`
   font-size: 2.75em;

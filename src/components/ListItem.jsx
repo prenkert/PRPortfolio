@@ -8,7 +8,7 @@ import { Link } from "gatsby"
 import { isMobile } from "react-device-detect"
 import LinkArrow from "./LinkArrow"
 import colors from "styles/colors"
-import { keyframes } from "@emotion/core"
+import { keyframes } from "@emotion/react"
 const ItemWrapper = styled("li")`
   padding-bottom: 0.4em;
   list-style-type: none;

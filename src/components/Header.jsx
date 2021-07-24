@@ -10,6 +10,7 @@ const HeaderContainer = styled("div")`
   left: ${dimensions.homeAlignLeft};
   display: inline-grid;
   grid-template-columns: repeat(2, auto);
+  margin-bottom: ${dimensions.paddingVerticalDesktop};
   }
 `
 

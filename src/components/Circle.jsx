@@ -3,6 +3,7 @@ import styled from "@emotion/styled"
 import colors from "styles/colors"
 import dimensions from "styles/dimensions"
 const Circle = styled("div")`
+  font-size: 1rem;
   border-radius: 2px;
   margin-right: 0.675rem;
   padding: 0.1rem 0.33rem 0.1rem 0.33rem;
