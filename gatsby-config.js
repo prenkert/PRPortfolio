@@ -17,6 +17,9 @@ module.exports = {
     `gatsby-plugin-resolve-src`,
     `gatsby-plugin-remove-trailing-slashes`,
     `gatsby-plugin-emotion`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
+    `gatsby-image`,
      {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -38,9 +41,6 @@ module.exports = {
         path: `${__dirname}/content/projects`,
       },
     }, 
-    `gatsby-transformer-sharp`,
-    `gatsby-image`,
-    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-transformer-remark`,
       options: {
