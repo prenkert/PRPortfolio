@@ -56,7 +56,8 @@ const TextContainer = styled("div")`
 const Grid = styled("div")`
   display: grid;
   height: 100%;
-  grid-template-columns: 400px max-content 2fr;
+  grid-template-columns: minmax(200px, 400px) max-content minmax(200px, 2fr);
+  grid-template-rows: max-content auto;
   column-gap: 50px;
 `
 
