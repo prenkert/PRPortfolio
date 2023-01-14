@@ -20,7 +20,7 @@ import {
 
 const BodyText = styled("div")`
 grid-column: 3;
-overflow: hidden scroll;
+overflow: hidden auto;
 position: relative;
 padding-right: 2rem;
 bottom: 0px; 
@@ -56,8 +56,8 @@ const TextContainer = styled("div")`
 const Grid = styled("div")`
   display: grid;
   height: 100%;
-  grid-template-columns: minmax(200px, 400px) max-content minmax(200px, 2fr);
-  grid-template-rows: max-content auto;
+  grid-template-columns: minmax(50px, 1fr) max-content 3fr;
+  grid-template-rows: max-content minmax(0,1fr);
   column-gap: 50px;
 `
 
@@ -129,7 +129,7 @@ const RenderBody = ({ meta, data }) => (
             <div style={{ gridColumn: "1" }}>
               <Img fluid={data.headshot.childImageSharp.fluid} />
             </div>
-            <div style={{ gridColumn: "2" }}>
+            <div style={{ gridColumn: "2", overflow: "auto" }}>
               <Links>
                 {data.content.frontmatter.links.map((link, i) =>
                     <li>
