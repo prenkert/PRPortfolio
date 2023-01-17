@@ -5,7 +5,7 @@ completed: false
 project_post_date: 2021-06-24
 project_category: Personal
 path: /personal_website/index
-project_preview_thumbnail: ./me_new.jpg
+project_preview_thumbnail: ./Gatsby_Logo.png
 tools: ["Gatsby", "Netlify", "Visual Studio Code"]
 project_links: [
     {"url": "https://philiprenkert.netlify.app/", "label": "Home Page"},
