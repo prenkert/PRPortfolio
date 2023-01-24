@@ -7,17 +7,6 @@ module.exports = {
     author: "Philip Renkert",
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-transition-link`,
-    `react-scroll-horizontal`,
-    `react-player`,
-    `gatsby-plugin-catch-links`,
-    `gatsby-plugin-transition-link`,
-    `gatsby-plugin-sass`,
-    `gatsby-plugin-resolve-src`,
-    `gatsby-plugin-remove-trailing-slashes`,
-    `gatsby-plugin-emotion`,
-    `gatsby-image`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
      {
@@ -60,6 +49,17 @@ module.exports = {
         ],
       },
     },
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-transition-link`,
+    `react-scroll-horizontal`,
+    `react-player`,
+    `gatsby-plugin-catch-links`,
+    `gatsby-plugin-transition-link`,
+    `gatsby-plugin-sass`,
+    `gatsby-plugin-resolve-src`,
+    `gatsby-plugin-remove-trailing-slashes`,
+    `gatsby-plugin-emotion`,
+    `gatsby-image`,
     {
       resolve: `gatsby-plugin-manifest`, // gatsby-plugin-manifest is for people to make this an icon on a mobile devices
       options: {

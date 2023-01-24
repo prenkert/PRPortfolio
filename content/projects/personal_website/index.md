@@ -1,11 +1,11 @@
 ---
 project_title: Personal Website
-featured_project: false
+featured_project: true
 completed: false
 project_post_date: 2021-06-24
 project_category: Personal
 path: /personal_website/index
-project_preview_thumbnail: ./Gatsby_Logo.png
+project_preview_thumbnail: gatsby_logo.png
 tools: ["Gatsby", "Netlify", "Visual Studio Code"]
 project_links: [
     {"url": "https://philiprenkert.netlify.app/", "label": "Home Page"},
@@ -14,7 +14,7 @@ project_links: [
 description: A personal website for documenting my various projects across academic, professional, and personal domains. 
 ---
 
-Outline:
+# Outline
 - Need for a website
     - Document what I've worked on; things I've learned
     - Do so in a public space, allowing others to learn, and have something to point to during interviews. A sort of interactive online resume. Why use words to convince people of who you are and what you're capable of when you can show them what you've dont and let them judge for themselves?
